@@ -20,7 +20,7 @@ class DefaultController extends \yii\base\Controller
         foreach (\Yii::$app->urlManager->rules as $urlRule) {
             if ($urlRule instanceof \yii\rest\UrlRule) {
                 $entity = [];
-                $controllerName = current($urlRule->controller);
+                $controllerName = key($urlRule->controller);
                 $entity['title'] = ucfirst($controllerName);
                 $urlRuleReflection = new \ReflectionClass($urlRule);
                 $rulesObject = $urlRuleReflection->getProperty('rules');
